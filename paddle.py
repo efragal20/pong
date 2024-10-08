@@ -4,13 +4,9 @@ class Paddle():
     def __init__(self):
         self.size = 4
     
-    def create_paddle(self, side):
-        if side.lower() == "left":
-            
-        elif side.lower == "right":
-
-        else
-            print(f"Wrong side: {side}, left or right allowed")
+    def create_paddles(self):
+        self.left_paddle = self.create_paddle_segments()
+        self.right_paddle = self.create_paddle_segments()
     
     def create_paddle_segments(self):
         paddle = []
