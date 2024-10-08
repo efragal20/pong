@@ -17,7 +17,7 @@ class Board():
         self.drawer.setpos(0, self.screen_size["y"]/2)
         self.drawer.seth(270)
         self.drawer.width = self.line_width
-        for segment in range(0,100):
+        for segment in range(0,50):
             self.drawer.down()
             self.drawer.forward(self.line_lenght)
             self.drawer.up()
