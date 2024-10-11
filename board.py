@@ -6,7 +6,9 @@ class Board():
         self.screen = Screen()
         self.pixel_size = pixel_size
         self.drawer = Turtle()
+        self.score_drawer = Turtle()
         self.screen_size = {"x": 800, "y": 600}
+        self.y_limit = self.screen_size["y"]/2
         self.line_lenght = 10
         self.line_width = 10
 
@@ -14,11 +16,10 @@ class Board():
         self.screen.setup(width=self.screen_size["x"], height = self.screen_size["y"],startx=400, starty=200)
         self.screen.bgcolor("black")
         self.screen.title("PONG GAME")
-        self.screen.tracer(0)
         self.screen.listen()
         self.drawer.up()
         self.drawer.color("white")
-        self.drawer.setpos(0, self.screen_size["y"]/2)
+        self.drawer.setpos(0, self.y_limit)
         self.drawer.seth(270)
         self.drawer.width = self.line_width
         for segment in range(0,50):
@@ -26,4 +27,18 @@ class Board():
             self.drawer.forward(self.line_lenght)
             self.drawer.up()
             self.drawer.forward(self.line_lenght)
+    
+    def draw_score(self, left_score, right_score):
+        self.score_drawer.clear()
+        self.score_drawer.pencolor("white")
+        self.score_drawer.up()
+        self.score_drawer.setpos(-100,self.y_limit-self.pixel_size)
+        self.score_drawer.down()
+        self.score_drawer.write(f"{left_score}", align='center')
+        
+        self.score_drawer.up()
+        self.score_drawer.setpos(100,self.y_limit-self.pixel_size)
+        self.score_drawer.down()
+        self.score_drawer.write(f"{right_score}", align='center')
+        self.score_drawer.hideturtle()
 
