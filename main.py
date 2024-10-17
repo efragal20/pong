@@ -11,6 +11,8 @@ pong_game_board.draw_score(left_score=0, right_score=0)
 paddle_left = Paddle(paddle_offset=-paddle_offset, paddle_limit=paddle_limit)
 paddle_right = Paddle(paddle_offset=paddle_offset, paddle_limit=paddle_limit)
 
+pong_game_board.draw_ball() #Ball
+
 pong_game_board.screen.onkeypress(fun=paddle_left.move_up, key="w")
 pong_game_board.screen.onkeypress(fun=paddle_left.move_down, key="s")
 pong_game_board.screen.onkeypress(fun=paddle_right.move_up, key="Up")

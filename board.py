@@ -7,6 +7,7 @@ class Board():
         self.pixel_size = pixel_size
         self.drawer = Turtle()
         self.score_drawer = Turtle()
+        self.ball = Turtle()
         self.screen_size = {"x": 800, "y": 600}
         self.y_limit = self.screen_size["y"]/2
         self.line_lenght = 10
@@ -41,4 +42,9 @@ class Board():
         self.score_drawer.down()
         self.score_drawer.write(f"{right_score}", align='center', font=('Arial', 30))
         self.score_drawer.hideturtle()
+
+    def draw_ball(self):
+        self.ball.up()
+        self.ball.shape("circle")
+        self.ball.color("white")
 
