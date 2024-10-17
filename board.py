@@ -32,13 +32,13 @@ class Board():
         self.score_drawer.clear()
         self.score_drawer.pencolor("white")
         self.score_drawer.up()
-        self.score_drawer.setpos(-100,self.y_limit-self.pixel_size)
+        self.score_drawer.setpos(-100,self.y_limit-self.pixel_size-40)
         self.score_drawer.down()
-        self.score_drawer.write(f"{left_score}", align='center')
+        self.score_drawer.write(f"{left_score}", align='center', font=('Arial', 30))
         
         self.score_drawer.up()
-        self.score_drawer.setpos(100,self.y_limit-self.pixel_size)
+        self.score_drawer.setpos(100, self.y_limit-self.pixel_size-40)
         self.score_drawer.down()
-        self.score_drawer.write(f"{right_score}", align='center')
+        self.score_drawer.write(f"{right_score}", align='center', font=('Arial', 30))
         self.score_drawer.hideturtle()
 
