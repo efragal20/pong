@@ -1,5 +1,5 @@
 from turtle import Turtle, Screen
-
+import random
 class Board():
     def __init__(self, pixel_size = 20):
         super().__init__()
@@ -47,4 +47,15 @@ class Board():
         self.ball.up()
         self.ball.shape("circle")
         self.ball.color("white")
+        lado=[1,2]
+        choise = random.choice(lado)
+        print(choise)
+        if choise == 2:
+            self.ball.seth(180)
+        balls_move = True
+        while balls_move:
+            self.ball.forward(10)
+        
+
+
 
