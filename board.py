@@ -43,19 +43,22 @@ class Board():
         self.score_drawer.write(f"{right_score}", align='center', font=('Arial', 30))
         self.score_drawer.hideturtle()
 
-    def draw_ball(self):
+    def draw_ball(self, p_p_left, p_p_right):
         self.ball.up()
         self.ball.shape("circle")
         self.ball.color("white")
-        lado=[1,2]
-        choise = random.choice(lado)
-        print(choise)
+        side=[1,2]
+        choise = random.choice(side)
         if choise == 2:
             self.ball.seth(180)
         balls_move = True
         while balls_move:
+            self.ball.speed(1)
             self.ball.forward(10)
-        
-
-
+            position_ball = self.ball.position()
+            position_ball = abs(position_ball)
+            if position_ball == p_p_left or position_ball == p_p_right :
+                print("Touch the paddle position")
+                balls_move = False
+            
 

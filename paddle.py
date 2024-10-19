@@ -6,7 +6,7 @@ class Paddle(Turtle):
         self.size = 3
         self.paddle_offset = paddle_offset
         self.paddle_limit = paddle_limit
-        self.create_paddle()
+        self.paddle_position = self.create_paddle()
 
     def create_paddle(self):
         self.up()
@@ -14,6 +14,8 @@ class Paddle(Turtle):
         self.color("white")
         self.turtlesize(stretch_wid=self.size, stretch_len=1)
         self.setpos(self.paddle_offset, 0)
+        paddle_position = self.position()
+        return paddle_position
     
     def move_up(self):
         if self.ycor() >= self.paddle_limit:
