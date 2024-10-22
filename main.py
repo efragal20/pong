@@ -16,12 +16,12 @@ paddle_left = Paddle(paddle_offset=-paddle_offset, paddle_limit=paddle_limit, bo
 paddle_right = Paddle(paddle_offset=paddle_offset, paddle_limit=paddle_limit, board=pong_game_board)
 # print(f"La posicion de la raqueta derecha: {paddle_right.paddle_position}")
 
-ball = Ball(board=pong_game_board)
-ball.move_ball(x_limit=board_size["x"]/2, y_limit=board_size["y"]/2) #Ball
-
 pong_game_board.screen.onkeypress(fun=paddle_left.move_up, key="w")
 pong_game_board.screen.onkeypress(fun=paddle_left.move_down, key="s")
 pong_game_board.screen.onkeypress(fun=paddle_right.move_up, key="Up")
 pong_game_board.screen.onkeypress(fun=paddle_right.move_down, key="Down")
+
+ball = Ball(board=pong_game_board)
+ball.move_ball(x_limit=board_size["x"]/2, y_limit=board_size["y"]/2) #Ball
 
 pong_game_board.screen.exitonclick()

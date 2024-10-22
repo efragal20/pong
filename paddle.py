@@ -23,7 +23,6 @@ class Paddle(Turtle):
             y=self.ycor()+self.pixel_size
             x=self.xcor()
             self.setpos(x,y)
-        self.board.screen.update()
 
     def move_down(self):
         if self.ycor() <= -self.paddle_limit:
@@ -32,6 +31,5 @@ class Paddle(Turtle):
             y=self.ycor()-self.pixel_size
             x=self.xcor()
             self.setpos(x,y)
-        self.board.screen.update()
         
         
