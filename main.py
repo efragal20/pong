@@ -1,20 +1,23 @@
 from board import Board
 from paddle import Paddle
+from ball import Ball
 
-pong_game_board = Board()
+board_size = {"x": 800, "y": 600}
+pixel_size = 20
+pong_game_board = Board(pixel_size=pixel_size, screen_size = board_size)
 pong_game_board.draw_field_pong()
 
-paddle_offset = abs(pong_game_board.screen_size["x"]/2)-pong_game_board.pixel_size
-paddle_limit = abs(pong_game_board.screen_size["y"]/2)-2*pong_game_board.pixel_size
+paddle_offset = abs(board_size["x"]/2)-pixel_size
+paddle_limit = abs(board_size["y"]/2)-2*pixel_size
 pong_game_board.draw_score(left_score=0, right_score=0)
 
-paddle_left = Paddle(paddle_offset=-paddle_offset, paddle_limit=paddle_limit)
+paddle_left = Paddle(paddle_offset=-paddle_offset, paddle_limit=paddle_limit, board=pong_game_board)
 # print(f"La posicion de la raqueta izquierda: {paddle_left.paddle_position}")
-paddle_right = Paddle(paddle_offset=paddle_offset, paddle_limit=paddle_limit)
+paddle_right = Paddle(paddle_offset=paddle_offset, paddle_limit=paddle_limit, board=pong_game_board)
 # print(f"La posicion de la raqueta derecha: {paddle_right.paddle_position}")
-position_paddle_left = abs(paddle_left.paddle_position)
-position_paddle_right = abs(paddle_right.paddle_position)
-pong_game_board.draw_ball(position_paddle_left, position_paddle_right) #Ball
+
+ball = Ball(board=pong_game_board)
+ball.move_ball(x_limit=board_size["x"]/2, y_limit=board_size["y"]/2) #Ball
 
 pong_game_board.screen.onkeypress(fun=paddle_left.move_up, key="w")
 pong_game_board.screen.onkeypress(fun=paddle_left.move_down, key="s")

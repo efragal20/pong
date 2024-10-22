@@ -1,17 +1,18 @@
 from turtle import Turtle, Screen
 import random
 class Board():
-    def __init__(self, pixel_size = 20):
-        super().__init__()
+    def __init__(self, pixel_size = 20, screen_size = {"x": 800, "y": 600}):
         self.screen = Screen()
         self.pixel_size = pixel_size
+        self.screen_size = screen_size
         self.drawer = Turtle()
         self.score_drawer = Turtle()
         self.ball = Turtle()
-        self.screen_size = {"x": 800, "y": 600}
         self.y_limit = self.screen_size["y"]/2
         self.line_lenght = 10
         self.line_width = 10
+
+        self.screen.tracer(0)
 
     def draw_field_pong(self):
         self.screen.setup(width=self.screen_size["x"], height = self.screen_size["y"],startx=400, starty=200)
@@ -42,23 +43,5 @@ class Board():
         self.score_drawer.down()
         self.score_drawer.write(f"{right_score}", align='center', font=('Arial', 30))
         self.score_drawer.hideturtle()
-
-    def draw_ball(self, p_p_left, p_p_right):
-        self.ball.up()
-        self.ball.shape("circle")
-        self.ball.color("white")
-        side=[1,2]
-        choise = random.choice(side)
-        if choise == 2:
-            self.ball.seth(180)
-        balls_move = True
-        while balls_move:
-            self.ball.speed(1)
-            self.ball.forward(10)
-            position_ball = self.ball.position()
-            position_ball = abs(position_ball)
-            if position_ball == p_p_left or position_ball == p_p_right :
-                print("Touch the paddle position")
-                balls_move = False
             
 
