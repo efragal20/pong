@@ -7,6 +7,7 @@ class Paddle(Turtle):
         self.size = 3
         self.paddle_offset = paddle_offset
         self.paddle_limit = paddle_limit
+        self.score = 0
         self.paddle_position = self.create_paddle()
 
     def create_paddle(self):
@@ -31,5 +32,11 @@ class Paddle(Turtle):
             y=self.ycor()-self.pixel_size
             x=self.xcor()
             self.setpos(x,y)
+
+    def get_vertical_limits(self):
+        return (self.ycor()-(self.size/2)*self.pixel_size, self.ycor()+(self.size/2)*self.pixel_size)
+    
+    def score_goal(self):
+        self.score += 1
         
         
